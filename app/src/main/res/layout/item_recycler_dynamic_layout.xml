@@ -49,7 +49,7 @@
                 android:textColor="@color/text_black"
                 android:textSize="12sp" />
         </RelativeLayout>
-        <com.yang.runbang.view.NineGridLayout
+        <com.shu.runbang.view.NineGridLayout
             android:id="@+id/nineGridLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
             android:layout_marginRight="12dp"
             app:spacing="3dp">
 
-        </com.yang.runbang.view.NineGridLayout>
+        </com.shu.runbang.view.NineGridLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

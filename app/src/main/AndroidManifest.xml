@@ -55,10 +55,10 @@
         <!-- 百度地图api配置 -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="nhturWDn5lC7Gwiuzx7UwXlcgUx9zHNn" />
+            android:value="KtuxkGypyuwDYl4QE5Lj72AmemQ4skto" />
         <meta-data
             android:name="Bmob_APP_KEY"
-            android:value="99ab5f136b4e6339a7c11a3a65b2248f" />
+            android:value="8480c853527e900a942db8a2c5e6aa9f" />
 
         <activity android:name="com.yang.runbang.activity.LoginActivity" />
         <activity android:name="com.yang.runbang.activity.RegisterActivity" />

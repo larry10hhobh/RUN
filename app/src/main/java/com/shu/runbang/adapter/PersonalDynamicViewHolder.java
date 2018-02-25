@@ -8,9 +8,6 @@ import android.widget.TextView;
 import com.shu.runbang.R;
 import com.shu.runbang.listener.OnRecyclerViewListener;
 
-/**
- * Created by 洋 on 2016/5/29.
- */
 public class PersonalDynamicViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
     public TextView dayText;//日

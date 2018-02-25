@@ -21,7 +21,6 @@ import cn.bmob.v3.BmobUser;
 
 /**
  * 聊天回话适配器
- * Created by 洋 on 2016/5/21.
  */
 public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

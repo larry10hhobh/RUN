@@ -20,7 +20,6 @@ import java.util.List;
 
 /**
  * 自定义显示相册的GridView的adapter
- * Created by 洋 on 2016/4/25.
  */
 public class AlbumGridAdapter extends BaseAdapter {
 

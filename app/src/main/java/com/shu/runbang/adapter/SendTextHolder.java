@@ -27,10 +27,7 @@ import cn.bmob.newim.listener.MessageSendListener;
 import cn.bmob.v3.exception.BmobException;
 
 /**
- *
  * 发送文本类型
- *
- * Created by 洋 on 2016/5/21.
  */
 public class SendTextHolder extends BaseViewHolder{
 

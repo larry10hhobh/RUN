@@ -13,10 +13,7 @@ import java.io.FileReader;
 import cn.bmob.newim.BmobIM;
 
 /**
- *
  * 我的Application
- *
- * Created by 洋 on 2016/5/4.
  */
 public class MyApplication extends Application {
 

@@ -12,7 +12,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="RunBang"
+            android:text="SAOBang"
             android:textSize="40sp"
             android:textStyle="bold"
             android:textColor="@color/colorTheme"
@@ -89,71 +89,6 @@
             android:background="@drawable/btn_login_selector"
             />
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:padding="5dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-            <View
-                android:layout_width="1dp"
-                android:layout_weight="1"
-                android:layout_height="1dp"
-                android:background="@color/theme_bg2"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_other_account"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textSize="16sp"/>
-            <View
-                android:layout_width="1dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="@color/theme_bg2"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:layout_marginBottom="20dp">
-            <ImageView
-                android:id="@+id/img_wechat_login"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="@drawable/wechat_logo_selector"
-                android:layout_marginRight="10dp"/>
-            <ImageView
-                android:id="@+id/img_weibo_login"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="@drawable/weibo_logo_selector"
-               android:layout_marginRight="10dp"
-                />
-            <ImageView
-                android:id="@+id/img_qq_login"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="@drawable/qq_logo_selector"
-                />
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-
 
 
 </RelativeLayout>

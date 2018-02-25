@@ -19,8 +19,6 @@ import java.util.List;
 /**
  *
  * 离线地图城市列表适配器
- *
- * Created by 洋 on 2016/5/7.
  */
 public class CityExpandableListAdapter extends BaseExpandableListAdapter {
 

@@ -18,9 +18,6 @@ import com.shu.runbang.model.bean.Comment;
 
 import java.util.List;
 
-/**
- * Created by 洋 on 2016/5/17.
- */
 public class CommentListAdapter extends BaseAdapter {
 
     private List<Comment> data;

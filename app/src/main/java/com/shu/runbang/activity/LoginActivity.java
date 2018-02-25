@@ -34,7 +34,7 @@ import cn.sharesdk.sina.weibo.SinaWeibo;
 import cn.sharesdk.tencent.qq.QQ;
 import cn.sharesdk.wechat.friends.Wechat;
 
-public class LoginActivity extends BaseActivity implements View.OnClickListener, PlatformActionListener {
+public class LoginActivity extends BaseActivity implements View.OnClickListener/*, PlatformActionListener*/ {
 
 
     private static final int MSG_SMSSDK_CALLBACK = 1;
@@ -78,16 +78,16 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         signInBtn = (Button) findViewById(R.id.btn_login);
         registerText = (TextView) findViewById(R.id.text_login_register);
         forgetPwdText = (TextView) findViewById(R.id.text_forget_pwd);
-        wechatImg = (ImageView) findViewById(R.id.img_wechat_login);
-        weiboImg = (ImageView) findViewById(R.id.img_weibo_login);
-        qqImg = (ImageView) findViewById(R.id.img_qq_login);
+//        wechatImg = (ImageView) findViewById(R.id.img_wechat_login);
+//        weiboImg = (ImageView) findViewById(R.id.img_weibo_login);
+//        qqImg = (ImageView) findViewById(R.id.img_qq_login);
 
         signInBtn.setOnClickListener(this);
         registerText.setOnClickListener(this);
         forgetPwdText.setOnClickListener(this);
-        wechatImg.setOnClickListener(this);
-        weiboImg.setOnClickListener(this);
-        qqImg.setOnClickListener(this);
+//        wechatImg.setOnClickListener(this);
+//        weiboImg.setOnClickListener(this);
+//        qqImg.setOnClickListener(this);
     }
 
     @Override
@@ -125,25 +125,25 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 startActivity(resetPwdIntent);
 
                 break;
-            case R.id.img_wechat_login: // 微信登录
-                //微信登录
-                //测试时，需要打包签名；sample测试时，用项目里面的demokey.keystore
-                //打包签名apk,然后才能产生微信的登录
-                Platform wechat = ShareSDK.getPlatform(Wechat.NAME);
-                authorize(wechat);
-
-                break;
-            case R.id.img_weibo_login: // 微博登录
-                //新浪微博
-                Platform sina = ShareSDK.getPlatform(SinaWeibo.NAME);
-                authorize(sina);
-
-                break;
-            case R.id.img_qq_login: // qq登录
-                //qq微博
-                Platform qq = ShareSDK.getPlatform(QQ.NAME);
-                authorize(qq);
-                break;
+//            case R.id.img_wechat_login: // 微信登录
+//                //微信登录
+//                //测试时，需要打包签名；sample测试时，用项目里面的demokey.keystore
+//                //打包签名apk,然后才能产生微信的登录
+//                Platform wechat = ShareSDK.getPlatform(Wechat.NAME);
+//                authorize(wechat);
+//
+//                break;
+//            case R.id.img_weibo_login: // 微博登录
+//                //新浪微博
+//                Platform sina = ShareSDK.getPlatform(SinaWeibo.NAME);
+//                authorize(sina);
+//
+//                break;
+//            case R.id.img_qq_login: // qq登录
+//                //qq微博
+//                Platform qq = ShareSDK.getPlatform(QQ.NAME);
+//                authorize(qq);
+//                break;
         }
 
     }
@@ -167,6 +167,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         return  false;
     }
 
+/*
 
     //执行授权，获取用户信息
     private void authorize(Platform plat) {
@@ -187,6 +188,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
     }
 
+
     //授权完成
     @Override
     public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
@@ -204,7 +206,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             Message msg = new Message();
             msg.what = MSG_AUTH_COMPLETE;
             msg.obj = new Object[] {platform.getName(), hashMap};
-            handler.sendMessage(msg);
+//            handler.sendMessage(msg);
         }
     }
 
@@ -280,10 +282,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         }
     };
 
-    /**
+    */
+/**
      * 第三方注册用户
      * @param platformName
-     */
+     *//*
+
     private void registerUser(String platformName) {
 
         Platform platform = ShareSDK.getPlatform(platformName);
@@ -322,10 +326,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
     }
 
-    /**
+    */
+/**
      * 第三方，判断是否已存在
      * @param platformName
-     */
+     *//*
+
     private void isUser(final String platformName){
 
         Platform platform = ShareSDK.getPlatform(platformName);
@@ -367,6 +373,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     }
 
 
+*/
 
 
 }

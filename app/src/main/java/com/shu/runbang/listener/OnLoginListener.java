@@ -4,9 +4,6 @@ import com.shu.runbang.model.bean.User;
 
 import java.util.HashMap;
 
-/**
- * Created by 洋 on 2016/6/13.
- */
 public interface OnLoginListener {
     /** 授权完成调用此接口，返回授权数据，如果需要注册，则返回true */
     public boolean onSignin(String platform, HashMap<String, Object> res);

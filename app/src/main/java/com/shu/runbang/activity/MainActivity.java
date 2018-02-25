@@ -153,7 +153,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private void initState() {
         titleText.setText("动态");
         publishImg.setVisibility(View.VISIBLE);
-        homeImg.setImageResource(R.drawable.tab_home_press_img);
+        homeImg.setImageResource(R.drawable.tab_dynamic_press_img);
         homeText.setTextColor(getResources().getColor(R.color.colorTheme));
         setDefaultFragment();
     }
@@ -293,7 +293,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         switch (v.getId()) {
             case R.id.main_tab_home_layout: //首页
                 resetComponentState();
-                homeImg.setImageResource(R.drawable.tab_home_press_img);
+                homeImg.setImageResource(R.drawable.tab_dynamic_press_img);
                 homeText.setTextColor(getResources().getColor(R.color.colorTheme));
                 titleText.setText("动态");
                 publishImg.setVisibility(View.VISIBLE);
@@ -372,7 +372,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         //主布局
 
         //tab栏
-        homeImg.setImageResource(R.drawable.tab_home_normal_img);
+        homeImg.setImageResource(R.drawable.tab_dynamic_normal_img);
         homeText.setTextColor(getResources().getColor(R.color.theme_black));
         runImg.setImageResource(R.drawable.tab_run_normal_img);
         runText.setTextColor(getResources().getColor(R.color.theme_black));

@@ -8,9 +8,6 @@ import android.widget.TextView;
 
 import com.shu.runbang.R;
 
-/**
- * Created by 洋 on 2016/6/12.
- */
 public class RecyclerFootViewHolder extends RecyclerView.ViewHolder {
 
     public TextView loadMore;

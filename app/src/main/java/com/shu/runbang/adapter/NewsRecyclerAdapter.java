@@ -16,7 +16,6 @@ import cn.bmob.newim.bean.BmobIMConversation;
 
 /**
  * 消息适配器
- * Created by 洋 on 2016/5/22.
  */
 public class NewsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

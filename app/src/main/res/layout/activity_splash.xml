@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
-                android:text="RunBang"
+                android:text="SAOBang"
                 android:textSize="40sp"
                 android:textColor="@color/theme_while"
                 android:layout_marginBottom="10dp"/>
@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="跑步帮"
+                android:text="SAO帮"
                 android:textSize="25sp"
                 android:textColor="@color/theme_while" />
 
@@ -68,7 +68,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="runbang.bmob.cn"
+                android:text="www.sao.com"
                 android:textColor="@color/bg_gray"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"

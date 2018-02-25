@@ -37,9 +37,6 @@ import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 
-/**
- * Created by 洋 on 2016/6/11.
- */
 public class DynamicRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private static final int Item_Type_Footer = 0;

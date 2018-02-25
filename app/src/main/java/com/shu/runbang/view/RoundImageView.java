@@ -16,7 +16,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.AttributeSet;
-import android.widget.ImageView;
+import android.support.v7.widget.AppCompatImageView;
+
 
 import com.shu.runbang.R;
 
@@ -24,7 +25,7 @@ import com.shu.runbang.R;
  * 圆形ImageView
  * Created by 洋 on 2016/4/24.
  */
-public class RoundImageView extends ImageView {
+public class RoundImageView extends AppCompatImageView {
 
 
     private static final ScaleType SCALE_TYPE = ScaleType.CENTER_CROP;

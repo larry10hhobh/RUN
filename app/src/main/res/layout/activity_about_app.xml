@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="跑步帮"
+            android:text="SAO帮"
             android:textSize="25sp"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
@@ -68,7 +68,7 @@
             android:id="@+id/text_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="http://runbang.bmob.cn"
+            android:text="http://www.sao.com"
             android:textColor="@color/colorPrimary"
             android:textSize="14sp"/>
     </LinearLayout>

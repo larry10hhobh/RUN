@@ -1,8 +1,5 @@
 package com.shu.runbang.listener;
 
-/**
- * Created by 洋 on 2016/6/8.
- */
 public interface OnRecyclerViewClickListener {
 
     void onItemClick(int position);

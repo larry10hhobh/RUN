@@ -9,9 +9,6 @@ import com.shu.runbang.model.bean.Dynamic;
 
 import java.util.List;
 
-/**
- * Created by 洋 on 2016/5/22.
- */
 public abstract class BaseViewHolder<T> extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
 
     private Context context;

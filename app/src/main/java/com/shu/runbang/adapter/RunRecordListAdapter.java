@@ -14,9 +14,6 @@ import com.shu.runbang.utils.GeneralUtil;
 
 import java.util.List;
 
-/**
- * Created by 洋 on 2016/5/9.
- */
 public class RunRecordListAdapter extends BaseAdapter {
 
     private Context context;

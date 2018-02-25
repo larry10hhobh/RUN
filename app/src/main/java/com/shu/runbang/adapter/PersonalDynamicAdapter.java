@@ -15,9 +15,6 @@ import com.shu.runbang.utils.GeneralUtil;
 
 import java.util.List;
 
-/**
- * Created by 洋 on 2016/5/29.
- */
 public class PersonalDynamicAdapter extends RecyclerView.Adapter<PersonalDynamicViewHolder>{
 
 

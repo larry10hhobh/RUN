@@ -11,9 +11,6 @@ import com.shu.runbang.R;
 
 import java.util.List;
 
-/**
- * Created by 洋 on 2016/6/13.
- */
 public class GuiderViewPagerAdapter extends PagerAdapter {
 
 

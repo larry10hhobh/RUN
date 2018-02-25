@@ -25,9 +25,6 @@ import cn.bmob.newim.BmobIM;
 import cn.bmob.newim.bean.BmobIMConversation;
 import cn.bmob.newim.bean.BmobIMMessage;
 
-/**
- * Created by 洋 on 2016/5/22.
- */
 public class NewsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
 
 

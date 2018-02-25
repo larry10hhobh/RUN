@@ -15,9 +15,6 @@ import com.shu.runbang.utils.GeneralUtil;
 
 import java.util.ArrayList;
 
-/**
- * Created by 洋 on 2016/5/8.
- */
 public class CitylistViewAdapter extends BaseAdapter {
 
     private Context context;

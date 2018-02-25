@@ -15,9 +15,6 @@ import com.shu.runbang.R;
 
 import java.util.List;
 
-/**
- * Created by 洋 on 2016/5/17.
- */
 public class ViewPagerAdapter extends PagerAdapter {
 
     private Context context;

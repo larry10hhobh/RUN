@@ -23,8 +23,6 @@ import cn.bmob.newim.bean.BmobIMUserInfo;
 
 /**
  * 接收到的文本类型
- *
- * Created by 洋 on 2016/5/22.
  */
 public class ReceiveTextHolder extends BaseViewHolder {
 

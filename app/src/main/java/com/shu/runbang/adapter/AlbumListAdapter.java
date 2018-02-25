@@ -17,9 +17,6 @@ import com.shu.runbang.model.bean.ImageFloder;
 
 import java.util.List;
 
-/**
- * Created by 洋 on 2016/5/15.
- */
 public class AlbumListAdapter extends BaseAdapter{
 
     private Context context;

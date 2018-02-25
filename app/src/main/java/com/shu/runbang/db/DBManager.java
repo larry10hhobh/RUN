@@ -16,8 +16,6 @@ import java.util.List;
 
 /**
  * 数据库管理类，单例类
- *
- * Created by 洋 on 2016/5/4.
  */
 public class DBManager {
 

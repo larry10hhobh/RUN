@@ -10,9 +10,6 @@ import android.widget.TextView;
 import com.shu.runbang.R;
 import com.shu.runbang.view.NineGridLayout;
 
-/**
- * Created by 洋 on 2016/7/15.
- */
 public class DynamicViewHolder extends RecyclerView.ViewHolder {
 
     public CardView cardView;

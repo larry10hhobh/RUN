@@ -5,10 +5,7 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 
 /**
- *
  * 定位监听器
- *
- * Created by 洋 on 2016/5/4.
  */
 public class MyLocationListener implements BDLocationListener {
 

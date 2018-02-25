@@ -4,12 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.shu.runbang.R;
 import com.shu.runbang.activity.RunActivity;
@@ -18,7 +20,9 @@ import com.shu.runbang.model.bean.RunRecord;
 import com.shu.runbang.model.bean.User;
 import com.shu.runbang.utils.GeneralUtil;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Random;
 
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
@@ -46,6 +50,7 @@ public class TabRunFragment extends Fragment implements View.OnClickListener {
     private static final int  request_code_from_friend = 0x11;
 
     private Button startBtn;
+    private TextView heartText;
     private TextView ditanceText;
     private TextView timeText;
     private TextView scoreNumberText;
@@ -91,6 +96,7 @@ public class TabRunFragment extends Fragment implements View.OnClickListener {
             cityName = getArguments().getString(ARG_PARAM1);
             cityCode = getArguments().getString(ARG_PARAM2);
         }
+        new TimeThread().start();
     }
 
     @Override
@@ -112,6 +118,7 @@ public class TabRunFragment extends Fragment implements View.OnClickListener {
      */
     private void initComponent(View view){
 
+        heartText = (TextView)view.findViewById(R.id.main_run_data_heart);
         startBtn = (Button) view.findViewById(R.id.main_run_start_btn);
         ditanceText = (TextView) view.findViewById(R.id.main_run_data_distance);
         timeText = (TextView) view.findViewById(R.id.main_run_data_time);
@@ -127,6 +134,7 @@ public class TabRunFragment extends Fragment implements View.OnClickListener {
         timeText.setText(GeneralUtil.secondsToHourString(totalTime));
         scoreNumberText.setText(String.valueOf(totalCount));
 
+        heartText.setText(String.valueOf(60 + new Random().nextInt(20)));
     }
     @Override
     public void onClick(View v) {
@@ -188,6 +196,35 @@ public class TabRunFragment extends Fragment implements View.OnClickListener {
         });
     }
 
+    public class TimeThread extends Thread{
+        @Override
+        public void run() {
+            super.run();
+            do{
+                try {
+                    Thread.sleep(3000);
+                    Message msg = new Message();
+                    msg.what = 1;
+                    mHandler.sendMessage(msg);
 
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }while (true);
+        }
+    }
+    private Handler mHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case 1:
+                    heartText.setText(String.valueOf(60 + new Random().nextInt(20)));
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 
 }

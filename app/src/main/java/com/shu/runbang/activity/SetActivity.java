@@ -93,7 +93,8 @@ public class SetActivity extends BaseActivity implements View.OnClickListener {
 //            case R.id.set_notification_relative:
 //                break;
             case R.id.set_update_version_relative://检查版本更新
-
+                Toast.makeText(SetActivity.this,"暂无此功能，敬请期待！",Toast.LENGTH_SHORT).show();
+/*
 
                 showProgressDialog(SetActivity.this, "检查中...");
                 new Handler().postDelayed(new Runnable() {
@@ -119,6 +120,7 @@ public class SetActivity extends BaseActivity implements View.OnClickListener {
                     }
                 }, 3000);
 
+*/
                 break;
             case R.id.set_feedback_relative:
                 Toast.makeText(SetActivity.this,"暂无此功能，敬请期待！",Toast.LENGTH_SHORT).show();

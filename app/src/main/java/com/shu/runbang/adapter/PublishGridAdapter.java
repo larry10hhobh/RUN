@@ -16,10 +16,7 @@ import com.shu.runbang.R;
 import java.util.List;
 
 /**
- *
  * 发布图片的适配器
- *
- * Created by 洋 on 2016/5/16.
  */
 public class PublishGridAdapter extends BaseAdapter{
 

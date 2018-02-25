@@ -19,9 +19,6 @@ import com.shu.runbang.model.bean.User;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by 洋 on 2016/6/6.
- */
 public class AddFriendRecyclerAdapter extends RecyclerView.Adapter<AddFriendRecyclerAdapter.ViewHolder> {
 
     private OnRecyclerViewClickListener listener=null;

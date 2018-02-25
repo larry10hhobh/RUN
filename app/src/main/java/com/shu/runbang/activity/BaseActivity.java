@@ -12,8 +12,7 @@ import cn.bmob.v3.Bmob;
 import cn.sharesdk.framework.ShareSDK;
 
 /**
- * 基Activity
- * Created by 洋 on 2016/4/22.
+ * 基类Activity
  */
 public class BaseActivity extends AppCompatActivity{
 

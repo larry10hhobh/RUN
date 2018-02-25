@@ -2,7 +2,6 @@ package com.shu.runbang.utils;
 
 /**
  * 基本配置
- * Created by 洋 on 2016/4/22.
  */
 public class ConfigUtil {
 

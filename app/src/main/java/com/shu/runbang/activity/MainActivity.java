@@ -294,7 +294,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             case R.id.main_tab_home_layout: //首页
                 resetComponentState();
                 homeImg.setImageResource(R.drawable.tab_dynamic_press_img);
-                homeText.setTextColor(getResources().getColor(R.color.colorTheme));
+                homeText.setTextColor(getResources().getColor(R.color.colorPrimary));
                 titleText.setText("动态");
                 publishImg.setVisibility(View.VISIBLE);
 
@@ -308,7 +308,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 resetComponentState();
 
                 runImg.setImageResource(R.drawable.tab_run_press_img);
-                runText.setTextColor(getResources().getColor(R.color.colorTheme));
+                runText.setTextColor(getResources().getColor(R.color.colorPrimary));
                 titleText.setVisibility(View.VISIBLE);
                 titleText.setText("跑步");
 
@@ -322,7 +322,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             case R.id.main_tab_me_layout:  //我的
                 resetComponentState();
                 meImg.setImageResource(R.drawable.tab_me_press_img);
-                meText.setTextColor(getResources().getColor(R.color.colorTheme));
+                meText.setTextColor(getResources().getColor(R.color.colorPrimary));
 
                 titleText.setVisibility(View.VISIBLE);
                 titleText.setText("我的");

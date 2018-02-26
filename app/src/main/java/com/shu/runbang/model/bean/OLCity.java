@@ -4,7 +4,6 @@ import java.util.List;
 
 /**
  * 离线地图城市
- * Created by 洋 on 2016/5/6.
  */
 public class OLCity {
 

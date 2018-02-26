@@ -7,12 +7,8 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
-import android.widget.ImageView;
 
-/**
- * Created by 洋 on 2016/7/15.
- */
-public class ImageViewMore extends ImageView {
+public class ImageViewMore extends android.support.v7.widget.AppCompatImageView {
 
     private int moreNum; //更多图片数量
     private int maskColor = 0x88000000; //默认覆盖颜色

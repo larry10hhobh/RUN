@@ -1,10 +1,7 @@
 package com.shu.runbang.model.bean;
 
 /**
- *
  * 网络请求返回接口
- *
- * Created by 洋 on 2016/5/4.
  */
 public interface IHttpCallback {
 

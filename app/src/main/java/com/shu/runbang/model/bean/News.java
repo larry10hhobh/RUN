@@ -8,7 +8,6 @@ import cn.bmob.v3.datatype.BmobFile;
 
 /**
  * 资讯
- * Created by 洋 on 2016/5/2.
  */
 public class News extends BmobObject {
 

@@ -23,7 +23,6 @@ import cn.bmob.v3.exception.BmobException;
 
 /**
  * 消息接收器
- * Created by 洋 on 2016/5/21.
  */
 public class MyMessageHandler extends BmobIMMessageHandler {
 

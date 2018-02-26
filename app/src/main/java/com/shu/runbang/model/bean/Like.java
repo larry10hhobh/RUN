@@ -2,9 +2,6 @@ package com.shu.runbang.model.bean;
 
 import cn.bmob.v3.BmobObject;
 
-/**
- * Created by 洋 on 2016/6/12.
- */
 public class Like extends BmobObject {
     private User fromUser;
     private Dynamic toDynamic;

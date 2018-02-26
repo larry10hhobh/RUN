@@ -5,11 +5,7 @@ import android.util.AttributeSet;
 import android.widget.ListView;
 
 /**
- *
- *
  * scrollview嵌套listview,解决滑动冲突问题
- *
- * Created by 洋 on 2016/5/16.
  */
 public class NoScrollListView extends ListView {
     public NoScrollListView(Context context) {

@@ -8,8 +8,6 @@ import cn.bmob.v3.BmobObject;
 
 /**
  * 跑步记录
- *
- * Created by 洋 on 2016/5/2.
  */
 public class RunRecord extends BmobObject {
 

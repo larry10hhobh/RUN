@@ -7,7 +7,6 @@ import java.util.Stack;
 /**
  * Activity管理类，单例类
  * 管理所有Activity
- * Created by 洋 on 2016/4/27.
  */
 public class ActivityManager {
 

@@ -23,7 +23,6 @@ import com.shu.runbang.R;
 
 /**
  * 圆形ImageView
- * Created by 洋 on 2016/4/24.
  */
 public class RoundImageView extends AppCompatImageView {
 

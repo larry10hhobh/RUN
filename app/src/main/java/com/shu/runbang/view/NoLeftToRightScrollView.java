@@ -6,10 +6,7 @@ import android.view.MotionEvent;
 import android.widget.ScrollView;
 
 /**
- *
  * 自定义Scrollview,解决Scrollview嵌套viewpager的滑动冲突问题
- *
- * Created by 洋 on 2016/5/17.
  */
 public class NoLeftToRightScrollView extends ScrollView {
 

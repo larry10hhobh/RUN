@@ -2,8 +2,6 @@ package com.shu.runbang.model.bean.weather;
 
 /**
  * 预警信息
- *
- * Created by 洋 on 2016/5/5.
  */
 public class Alarm {
 

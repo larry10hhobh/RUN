@@ -5,7 +5,6 @@ import cn.bmob.v3.datatype.BmobDate;
 
 /**
  * 用户类
- * Created by 洋 on 2016/4/22.
  */
 public class User extends BmobUser {
 

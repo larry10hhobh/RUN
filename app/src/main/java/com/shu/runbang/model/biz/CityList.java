@@ -6,10 +6,7 @@ import com.shu.runbang.model.bean.WeatherCity;
 import java.util.List;
 
 /**
- *
  * 城市列表类
- *
- * Created by 洋 on 2016/5/4.
  */
 public class CityList {
 

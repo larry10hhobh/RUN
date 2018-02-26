@@ -15,10 +15,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- *
  * 通用工具类
- *
- * Created by 洋 on 2016/4/24.
  */
 public class GeneralUtil {
 
@@ -48,6 +45,7 @@ public class GeneralUtil {
     /**
      *
      * 是否为Email地址
+     * 只允许英文字母、数字、下划线、英文句号、以及中划线组成
      * @param email
      * @return
      */

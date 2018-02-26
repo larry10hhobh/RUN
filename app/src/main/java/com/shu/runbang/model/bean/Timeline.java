@@ -3,9 +3,6 @@ package com.shu.runbang.model.bean;
 import cn.bmob.v3.BmobObject;
 import cn.bmob.v3.datatype.BmobRelation;
 
-/**
- * Created by 洋 on 2016/5/13.
- */
 public class Timeline extends BmobObject{
 
     private User fromUser; // 用户

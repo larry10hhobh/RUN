@@ -1,10 +1,7 @@
 package com.shu.runbang.utils;
 
 /**
- *
  * 标识类
- *
- * Created by 洋 on 2016/5/1.
  */
 public class IdentiferUtil {
 

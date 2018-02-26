@@ -2,7 +2,6 @@ package com.shu.runbang.model.bean.weather;
 
 /**
  * 空气质量
- * Created by 洋 on 2016/5/5.
  */
 public class Aqi {
 

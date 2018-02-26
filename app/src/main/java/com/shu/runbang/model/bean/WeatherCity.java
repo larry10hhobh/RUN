@@ -3,10 +3,7 @@ package com.shu.runbang.model.bean;
 import cn.bmob.v3.BmobObject;
 
 /**
- *
  * 城市信息
- *
- * Created by 洋 on 2016/5/4.
  */
 public class WeatherCity extends BmobObject {
 

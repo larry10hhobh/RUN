@@ -1,9 +1,7 @@
 package com.shu.runbang.model.bean;
 
 /**
- *
  * bmob返回结果处理接口
- * Created by 洋 on 2016/5/1.
  */
 public interface IBmobCallback {
 

@@ -4,8 +4,6 @@ import java.util.List;
 
 /**
  * 天气数据
- *
- * Created by 洋 on 2016/5/5.
  */
 public class WeatherData {
 

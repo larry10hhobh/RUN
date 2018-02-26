@@ -12,7 +12,6 @@ import java.util.Date;
 
 /**
  * 文件工具类
- * Created by 洋 on 2016/4/25.
  */
 public class FileUtil {
 

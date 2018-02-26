@@ -22,7 +22,6 @@ import cn.bmob.v3.listener.FindListener;
 
 /**
  * 用户业务类
- * Created by 洋 on 2016/4/24.
  */
 public class UserModel {
 

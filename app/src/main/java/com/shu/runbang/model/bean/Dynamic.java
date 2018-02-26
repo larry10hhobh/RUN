@@ -6,10 +6,7 @@ import cn.bmob.v3.BmobObject;
 import cn.bmob.v3.datatype.BmobRelation;
 
 /**
- *
  * 动态实体类
- *
- * Created by 洋 on 2016/5/10.
  */
 public class Dynamic extends BmobObject {
 

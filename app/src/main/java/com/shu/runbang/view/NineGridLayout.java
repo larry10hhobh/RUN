@@ -16,7 +16,6 @@ import java.util.List;
 
 /**
  * 九宫格图片布局
- * Created by 洋 on 2016/7/14.
  */
 public class NineGridLayout extends ViewGroup {
 

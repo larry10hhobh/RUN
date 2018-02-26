@@ -2,7 +2,6 @@ package com.shu.runbang.model.bean;
 
 /**
  * 图片文件夹
- * Created by 洋 on 2016/4/25.
  */
 public class ImageFloder {
 

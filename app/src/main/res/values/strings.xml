@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RunBang</string>
+    <string name="app_name">ShuGo</string>
 
     <string name="btn_login">登录</string>
 
@@ -89,7 +89,7 @@
 
     <string name="longclick_speak">长按说话</string>
 
-    <string name="about_time">2018.2 SAOBang</string>
+    <string name="about_time">2018.2 ShuGo</string>
 
 
 </resources>

@@ -1,4 +1,4 @@
-package com.shu.runbang;
+package com.shu.shugo;
 
 import org.junit.Test;
 

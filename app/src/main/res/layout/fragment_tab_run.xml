@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/theme_while"
-    tools:context="com.shu.runbang.fragment.TabRunFragment">
+    tools:context="com.shu.shugo.fragment.TabRunFragment">
 
 
     <include layout="@layout/main_run_data_layout" />

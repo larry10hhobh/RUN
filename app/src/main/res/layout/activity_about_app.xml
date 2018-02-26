@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SAO帮"
+            android:text="ShuGo"
             android:textSize="25sp"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
@@ -68,7 +68,7 @@
             android:id="@+id/text_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="http://www.sao.com"
+            android:text="http://www.shuuu.edu.cn"
             android:textColor="@color/colorPrimary"
             android:textSize="14sp"/>
     </LinearLayout>

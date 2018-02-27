@@ -57,6 +57,7 @@ public class AboutAppActivity extends BaseActivity {
             }
         });
     }
+
     /**
      * 获取版本号
      * @return

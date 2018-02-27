@@ -3,6 +3,8 @@ package com.larry.shugo.activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.Toast;
 
 import com.larry.shugo.R;
@@ -27,7 +29,7 @@ public class ChartActivity extends AppCompatActivity {
     private LineChartData data;          // 折线图封装的数据类
     private int numberOfLines = 1;         //线条的数量
     private int maxNumberOfLines = 4;     //最大的线条数据
-    private int numberOfPoints = 10;     //点的数量
+    private int numberOfPoints = 8;     //点的数量
 
     float[][] randomNumbersTab = new float[maxNumberOfLines][numberOfPoints]; //二维数组，线的数量和点的数量
 
@@ -48,8 +50,25 @@ public class ChartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
         chart = (LineChartView) findViewById(R.id.line_chart); //实例化
+        initToolBar();
         initData();
         initEvent();
+    }
+
+    /**
+     * 初始化toolbar
+     */
+    private void initToolBar(){
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_heart_app);
+        toolbar.setTitle("详细图表");
+        toolbar.setNavigationIcon(R.drawable.back);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     private void initData() {
@@ -76,9 +95,10 @@ public class ChartActivity extends AppCompatActivity {
         // Reset viewport height range to (0,100)
         final Viewport v = new Viewport(chart.getMaximumViewport());
         v.bottom = 0;
-        v.top = 100;
+        v.top = 200;
         v.left = 0;
-        v.right = numberOfPoints - 1;
+        v.right = 4;
+//        v.right = numberOfPoints - 1;
         chart.setMaximumViewport(v);
         chart.setCurrentViewport(v);
     }
@@ -87,10 +107,15 @@ public class ChartActivity extends AppCompatActivity {
      * 设置四条线条的数据
      */
     private void generateValues() {
+/*
         for (int i = 0; i < maxNumberOfLines; ++i) {
             for (int j = 0; j < numberOfPoints; ++j) {
                 randomNumbersTab[i][j] = (float) Math.random() * 100f;
             }
+        }
+*/
+        for (int j = 0; j < numberOfPoints; ++j) {
+            randomNumbersTab[0][j] = (float) Math.random() * 100f + 90;
         }
     }
 
@@ -131,8 +156,8 @@ public class ChartActivity extends AppCompatActivity {
             if (hasAxesNames) {
                 axisX.setTextColor(Color.BLACK);//设置x轴字体的颜色
                 axisY.setTextColor(Color.BLACK);//设置y轴字体的颜色
-                axisX.setName("(分)");
-                axisY.setName("(次/分)");
+                axisX.setName("Time(min)");
+                axisY.setName("Heart(PM)");
             }
             data.setAxisXBottom(axisX);
             data.setAxisYLeft(axisY);

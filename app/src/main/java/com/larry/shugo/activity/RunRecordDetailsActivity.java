@@ -55,6 +55,7 @@ public class RunRecordDetailsActivity extends BaseActivity implements View.OnCli
     private TextView distanceText;
     private TextView timeText;
     private TextView heartText;
+    private TextView heartUnitText;
 
 
     private BaiduMap baiduMap;
@@ -150,7 +151,9 @@ public class RunRecordDetailsActivity extends BaseActivity implements View.OnCli
         distanceText = (TextView) findViewById(R.id.record_details_distance_text);
         timeText = (TextView) findViewById(R.id.record_details_time_text);
         heartText = (TextView)findViewById(R.id.record_details_heart_text);
+        heartUnitText = (TextView)findViewById(R.id.record_details_distance_unit);
         heartText.setOnClickListener(this);
+        heartUnitText.setOnClickListener(this);
 
     }
 
@@ -229,10 +232,13 @@ public class RunRecordDetailsActivity extends BaseActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
+        Intent chartIntent = new Intent(this, ChartActivity.class);
         switch (v.getId()) {
             case R.id.record_details_heart_text:
-                Intent aboutIntent = new Intent(this, ChartActivity.class);
-                startActivity(aboutIntent);
+                startActivity(chartIntent);
+                break;
+            case R.id.record_details_heart_unit:
+                startActivity(chartIntent);
                 break;
         }
     }

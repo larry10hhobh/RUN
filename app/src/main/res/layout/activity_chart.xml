@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_about_app"
+        android:id="@+id/toolbar_heart_app"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
@@ -18,35 +18,56 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <!--<ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@mipmap/ic_launcher"
-            android:layout_centerInParent="true"
-            android:layout_margin="24dp"
-            android:scaleType="centerCrop"/>-->
-        <lecho.lib.hellocharts.view.LineChartView
-            android:id="@+id/line_chart"
-            android:layout_width="280dp"
-            android:layout_height="180dp"
-            android:layout_centerInParent="true"
-            android:layout_margin="24dp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="心率曲线"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <lecho.lib.hellocharts.view.LineChartView
+            android:id="@+id/line_chart"
+            android:layout_width="320dp"
+            android:layout_height="250dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/div_gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:src="@drawable/tab_run_press_img"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="ShuGo"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="运动心率分析"
             android:textColor="@color/colorPrimary"
-            android:textSize="25sp"
+            android:textSize="17sp"
             android:textStyle="bold" />
-    </RelativeLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,45 +79,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="官网："
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:text="这里说点话11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
             android:textColor="@color/text_black"
             android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/text_link"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="http://www.shuuu.edu.cn"
-            android:textColor="@color/colorPrimary"
-            android:textSize="14sp" />
     </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:gravity="center"
-            android:orientation="vertical">
-            <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="用户隐私协议"-->
-            <!--android:textColor="@color/text_light_blue"-->
-            <!--android:textSize="16sp"-->
-            <!--android:layout_marginBottom="5dp"/>-->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:text="@string/about_time"
-                android:textSize="14sp" />
-        </LinearLayout>
-    </RelativeLayout>
 
 </LinearLayout>

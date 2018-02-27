@@ -41,7 +41,7 @@
             android:layout_marginLeft="12dp"
             />
     </RelativeLayout>
-    <com.larry.shugo.view.NoLeftToRightScrollView
+    <com.shu.shugo.view.NoLeftToRightScrollView
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_weight="1"
@@ -115,7 +115,7 @@
             <include
                 layout="@layout/comment__layout"/>
         </LinearLayout>
-    </com.larry.shugo.view.NoLeftToRightScrollView>
+    </com.shu.shugo.view.NoLeftToRightScrollView>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

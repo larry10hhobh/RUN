@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.shu.shugo">
+    package="com.larry.shugo">
 
     <!-- 允许联网 -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -40,12 +40,11 @@
     <!-- 推送所需的权限 -->
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
-    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
-    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
     <application
-        android:name="com.shu.shugo.application.MyApplication"
+        android:name="com.larry.shugo.application.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -60,14 +59,14 @@
             android:name="Bmob_APP_KEY"
             android:value="8480c853527e900a942db8a2c5e6aa9f" />
 
-        <activity android:name="com.shu.shugo.activity.LoginActivity" />
-        <activity android:name="com.shu.shugo.activity.RegisterActivity" />
-        <activity android:name="com.shu.shugo.activity.RegisterUserActivity" />
-        <activity android:name="com.shu.shugo.activity.MainActivity" />
-        <activity android:name="com.shu.shugo.activity.SelectPictureActivity" />
-        <activity android:name="com.shu.shugo.activity.ResetPasswordActivity" />
-        <activity android:name="com.shu.shugo.activity.SetActivity" />
-        <activity android:name="com.shu.shugo.activity.RunActivity" />
+        <activity android:name="com.larry.shugo.activity.LoginActivity" />
+        <activity android:name="com.larry.shugo.activity.RegisterActivity" />
+        <activity android:name="com.larry.shugo.activity.RegisterUserActivity" />
+        <activity android:name="com.larry.shugo.activity.MainActivity" />
+        <activity android:name="com.larry.shugo.activity.SelectPictureActivity" />
+        <activity android:name="com.larry.shugo.activity.ResetPasswordActivity" />
+        <activity android:name="com.larry.shugo.activity.SetActivity" />
+        <activity android:name="com.larry.shugo.activity.RunActivity" />
 
         <!-- 百度定位服务 -->
         <service
@@ -81,42 +80,43 @@
             android:enabled="true"
             android:exported="true" />
         <service
-            android:name="com.shu.shugo.service.MonitorService"
+            android:name="com.larry.shugo.service.MonitorService"
             android:enabled="true"
             android:exported="true" />
 
         <!-- shareSDK配置 -->
         <activity
             android:name="com.mob.tools.MobUIShell"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <data android:scheme="tencent1104646053" />
+
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <!--微信分享回调-->
+        <!-- 微信分享回调 -->
         <activity
-            android:name="com.shu.shugo.wxaqi.WXEntryActivity"
+            android:name="com.larry.shugo.wxaqi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-
-        <activity android:name="com.shu.shugo.activity.OLMapActivity" />
-        <activity android:name="com.shu.shugo.activity.RunRecordActivity" />
-        <activity android:name="com.shu.shugo.activity.RunRecordDetailsActivity" />
-        <activity android:name="com.shu.shugo.activity.NewsActivity" />
-        <activity android:name="com.shu.shugo.activity.PublishDynamicActivity" />
-        <activity android:name="com.shu.shugo.activity.AlbumActivity" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name="com.larry.shugo.activity.OLMapActivity" />
+        <activity android:name="com.larry.shugo.activity.RunRecordActivity" />
+        <activity android:name="com.larry.shugo.activity.RunRecordDetailsActivity" />
+        <activity android:name="com.larry.shugo.activity.NewsActivity" />
+        <activity android:name="com.larry.shugo.activity.PublishDynamicActivity" />
+        <activity android:name="com.larry.shugo.activity.AlbumActivity" />
         <activity
-            android:name="com.shu.shugo.activity.DynamicDetailsActivity"
+            android:name="com.larry.shugo.activity.DynamicDetailsActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        <activity android:name="com.shu.shugo.activity.FriendActivity" />
+        <activity android:name="com.larry.shugo.activity.FriendActivity" />
 
         <receiver android:name="cn.bmob.newim.core.ConnectChangeReceiver">
             <intent-filter>
@@ -136,15 +136,15 @@
         <service android:name="cn.bmob.newim.core.service.ReConnectService" />
         <service android:name="cn.bmob.newim.core.service.HeartBeatService" />
 
-        <activity android:name="com.shu.shugo.activity.ChatActivity" />
-        <activity android:name="com.shu.shugo.activity.ModifyInformatonActivity" />
-        <activity android:name="com.shu.shugo.activity.BindAccountActivity" />
-        <activity android:name="com.shu.shugo.activity.BindActivity" />
-        <activity android:name="com.shu.shugo.activity.AboutAppActivity" />
+        <activity android:name="com.larry.shugo.activity.ChatActivity" />
+        <activity android:name="com.larry.shugo.activity.ModifyInformatonActivity" />
+        <activity android:name="com.larry.shugo.activity.BindAccountActivity" />
+        <activity android:name="com.larry.shugo.activity.BindActivity" />
+        <activity android:name="com.larry.shugo.activity.AboutAppActivity" />
         <activity
             android:name="cn.bmob.v3.update.UpdateDialogActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name="com.shu.shugo.activity.PushSetActivity" />
+        <activity android:name="com.larry.shugo.activity.PushSetActivity" />
 
         <service
             android:name="cn.bmob.push.lib.service.PushService"
@@ -169,7 +169,7 @@
         </receiver>
         <!-- 第四部中创建的消息接收器，在这里进行注册 -->
         <receiver
-            android:name="com.shu.shugo.receiver.MyPushMessageReceiver"
+            android:name="com.larry.shugo.receiver.MyPushMessageReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -177,15 +177,17 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name="com.shu.shugo.activity.PersonProfileActivity" />
-        <activity android:name="com.shu.shugo.activity.AddFriendActivity" />
-        <activity android:name="com.shu.shugo.activity.SplashActivity">
+        <activity android:name="com.larry.shugo.activity.PersonProfileActivity" />
+        <activity android:name="com.larry.shugo.activity.AddFriendActivity" />
+        <activity android:name="com.larry.shugo.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.shu.shugo.activity.NoticeActivity"></activity>
+        <activity android:name="com.larry.shugo.activity.NoticeActivity" />
+        <activity android:name="com.larry.shugo.activity.ChartActivity"></activity>
     </application>
 
 </manifest>

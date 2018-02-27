@@ -117,14 +117,14 @@
                     </LinearLayout>
                 </RelativeLayout>
 
-                <com.shu.shugo.view.NoScrollListView
+                <com.larry.shugo.view.NoScrollListView
                     android:id="@+id/user_dynamic_listview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@id/user_title_layout"
                     android:scrollbars="none">
 
-                </com.shu.shugo.view.NoScrollListView>
+                </com.larry.shugo.view.NoScrollListView>
 
             </RelativeLayout>
 

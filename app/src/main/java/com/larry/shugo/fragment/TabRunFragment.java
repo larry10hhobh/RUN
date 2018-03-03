@@ -46,7 +46,7 @@ public class TabRunFragment extends Fragment implements View.OnClickListener {
     private static final int  request_code_from_friend = 0x11;
 
     private Button startBtn;
-    private TextView heartText;
+//    private TextView heartText;
     private TextView ditanceText;
     private TextView timeText;
     private TextView scoreNumberText;
@@ -114,7 +114,7 @@ public class TabRunFragment extends Fragment implements View.OnClickListener {
      */
     private void initComponent(View view){
 
-        heartText = (TextView)view.findViewById(R.id.main_run_data_heart);
+//        heartText = (TextView)view.findViewById(R.id.main_run_data_heart);
         startBtn = (Button) view.findViewById(R.id.main_run_start_btn);
         ditanceText = (TextView) view.findViewById(R.id.main_run_data_distance);
         timeText = (TextView) view.findViewById(R.id.main_run_data_time);

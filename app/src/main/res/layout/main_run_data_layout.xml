@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="17dp"
         android:orientation="horizontal">
 
         <TextView
@@ -81,7 +81,7 @@
             android:id="@+id/main_run_data_score_linear"
             android:layout_width="1dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             android:layout_weight="1"
             android:orientation="horizontal"
             android:gravity="center_horizontal">
@@ -113,7 +113,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
+<!--    <LinearLayout
         android:id="@+id/main_run_data_heart_linear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -144,5 +144,5 @@
         android:layout_below="@id/main_run_data_heart_linear"
         android:layout_centerInParent="true"
         android:layout_marginTop="5dp"
-        android:text="@string/text_run_data_heart" />
+        android:text="@string/text_run_data_heart" />-->
 </RelativeLayout>

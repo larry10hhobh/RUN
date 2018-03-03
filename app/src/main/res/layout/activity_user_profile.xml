@@ -48,7 +48,7 @@
                         android:layout_alignTop="@id/user_head_img"
                         android:layout_marginLeft="12dp"
                         android:layout_toRightOf="@id/user_head_img"
-                        android:text="二宝"
+                        android:text="test123ooo"
                         android:textColor="@color/theme_while"
                         android:textSize="16sp" />
 

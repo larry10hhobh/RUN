@@ -37,7 +37,7 @@
             android:id="@+id/main_tab_run_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/tab_run_normal_img"/>
+            android:src="@drawable/tab_runshoes_normal_img"/>
         <TextView
             android:id="@+id/main_tab_run_text"
             android:layout_width="wrap_content"

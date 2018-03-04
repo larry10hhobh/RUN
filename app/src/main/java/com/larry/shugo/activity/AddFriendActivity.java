@@ -138,12 +138,13 @@ public class AddFriendActivity extends BaseActivity implements OnRecyclerViewCli
      */
     private void queryUserByNickName(String name) {
         BmobQuery<User> query = new BmobQuery<>();
-//        query.addWhereContains("nickName", name);
+//        query.addWhereContains("nickName", name); // 模糊查询只对付费用户开放
+        query.addWhereEqualTo("nickName",name);
         query.findObjects(context, new FindListener<User>() {
             @Override
             public void onSuccess(List<User> list) {
 
-                Log.i("TAG", list.size() + "daxiao");
+                Log.i("TAG", list.size() + "条数据");
                 if (list != null && list.size() > 0) { //成功且有数据
                     data.clear();
                     data = list;

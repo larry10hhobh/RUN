@@ -22,7 +22,7 @@
             android:id="@+id/edit_nick_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="输入用户昵称"
+            android:hint="请输入用户昵称"
             android:paddingLeft="5dp"
             android:textColor="@color/text_black"
             android:background="@drawable/edit_gray_selector"/>

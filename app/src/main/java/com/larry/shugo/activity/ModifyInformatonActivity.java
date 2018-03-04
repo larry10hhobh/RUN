@@ -350,7 +350,7 @@ public class ModifyInformatonActivity extends BaseActivity implements View.OnCli
         datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                birthdayStr=year+"-"+monthOfYear+"-"+dayOfMonth;
+                birthdayStr=year+"-"+(monthOfYear+1)+"-"+dayOfMonth;
                 birthdayText.setText(birthdayStr);
                 //字符串转化为日期Date
                 birthdayDate=GeneralUtil.stringToDate(birthdayStr);

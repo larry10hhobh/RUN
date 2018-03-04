@@ -274,6 +274,7 @@ public class TabMeFragment extends Fragment implements View.OnClickListener{
         query.findObjects(context, new FindListener<RunRecord>() {
             @Override
             public void onSuccess(List<RunRecord> list) {
+//                Log.i("TAG", list.size() + "tiao");
                 if (list.size() > 0) {
                     totalDistance = 0.0;
                     totalTime = 0;

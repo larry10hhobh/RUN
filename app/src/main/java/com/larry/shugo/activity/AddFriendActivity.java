@@ -14,7 +14,9 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.larry.shugo.R;
 import com.larry.shugo.adapter.AddFriendRecyclerAdapter;
@@ -67,10 +69,10 @@ public class AddFriendActivity extends BaseActivity implements OnRecyclerViewCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_friend);
-        user = BmobUser.getCurrentUser(context,User.class);
+        user = BmobUser.getCurrentUser(context, User.class);
         initComponent();
         setListener();
-        if (user!=null) {
+        if (user != null) {
             //获取关注列表
             getFollow();
         }
@@ -80,7 +82,7 @@ public class AddFriendActivity extends BaseActivity implements OnRecyclerViewCli
     /**
      * 初始化组件
      */
-    private void initComponent(){
+    private void initComponent() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_add_friend);
         toolbar.setTitle("搜索用户");
         toolbar.setNavigationIcon(R.drawable.back);
@@ -97,7 +99,7 @@ public class AddFriendActivity extends BaseActivity implements OnRecyclerViewCli
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new AddFriendRecyclerAdapter(user,this);
+        adapter = new AddFriendRecyclerAdapter(user, this);
         recyclerView.setAdapter(adapter);
 
     }
@@ -105,7 +107,7 @@ public class AddFriendActivity extends BaseActivity implements OnRecyclerViewCli
     /**
      * 设置监听
      */
-    private void setListener(){
+    private void setListener() {
         nickName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -121,7 +123,7 @@ public class AddFriendActivity extends BaseActivity implements OnRecyclerViewCli
             public void afterTextChanged(Editable s) {
 
                 String name = nickName.getText().toString();
-                if (name!=null&&name.length()>0) {
+                if (name != null && name.length() > 0) {
                     queryUserByNickName(name);
                 }
 
@@ -131,11 +133,12 @@ public class AddFriendActivity extends BaseActivity implements OnRecyclerViewCli
 
     /**
      * 查询用户通过昵称
+     *
      * @param name
      */
     private void queryUserByNickName(String name) {
         BmobQuery<User> query = new BmobQuery<>();
-        query.addWhereContains("nickName", name);
+//        query.addWhereContains("nickName", name);
         query.findObjects(context, new FindListener<User>() {
             @Override
             public void onSuccess(List<User> list) {
@@ -160,17 +163,17 @@ public class AddFriendActivity extends BaseActivity implements OnRecyclerViewCli
     /**
      * 获取已关注对象列表
      */
-    public void getFollow(){
+    public void getFollow() {
         BmobQuery<Friend> query = new BmobQuery<>();
-        query.addWhereEqualTo("fromUser",user);
+        query.addWhereEqualTo("fromUser", user);
         query.include("toUser");
         query.addQueryKeys("toUser");
         query.findObjects(context, new FindListener<Friend>() {
             @Override
             public void onSuccess(List<Friend> list) {
-                if (list!=null&&list.size()>0) {
-                    Log.i("TAG","大小"+list.size());
-                    for(Friend friend:list) {
+                if (list != null && list.size() > 0) {
+                    Log.i("TAG", "大小" + list.size());
+                    for (Friend friend : list) {
                         followData.add(friend.getToUser());
                     }
                     Message msg = new Message();
@@ -181,18 +184,18 @@ public class AddFriendActivity extends BaseActivity implements OnRecyclerViewCli
 
             @Override
             public void onError(int i, String s) {
-                Log.i("TAG",s+i+"失败");
+                Log.i("TAG", s + i + "失败");
             }
         });
     }
 
 
-    Handler handler = new Handler(){
+    Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case Query_User_Success:
-                    if (data!=null&&data.size()>0) {
+                    if (data != null && data.size() > 0) {
 
                         adapter.setData(data);
                         adapter.notifyDataSetChanged();
@@ -241,8 +244,8 @@ public class AddFriendActivity extends BaseActivity implements OnRecyclerViewCli
     @Override
     public void onItemClick(int position) {
 
-        Intent intent = new Intent(AddFriendActivity.this,PersonProfileActivity.class);
-        intent.putExtra("userid",data.get(position).getObjectId());
+        Intent intent = new Intent(AddFriendActivity.this, PersonProfileActivity.class);
+        intent.putExtra("userid", data.get(position).getObjectId());
         startActivity(intent);
 
 
@@ -255,11 +258,11 @@ public class AddFriendActivity extends BaseActivity implements OnRecyclerViewCli
 
     @Override
     public void onChildClick(int position, int childId) {
-        switch (childId){
+        switch (childId) {
             case R.id.linear_item_add_friend_follow://关注
 
                 User aimUser = data.get(position);
-                if (aimUser!=user && !followData.contains(aimUser)) {
+                if (aimUser != user && !followData.contains(aimUser)) {
                     Friend friend = new Friend();
                     friend.setFromUser(user);
                     friend.setToUser(data.get(position));

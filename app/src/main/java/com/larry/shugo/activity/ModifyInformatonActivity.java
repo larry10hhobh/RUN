@@ -405,6 +405,7 @@ public class ModifyInformatonActivity extends BaseActivity implements View.OnCli
 
 
     }
+
     /**
      * 上传图片
      */

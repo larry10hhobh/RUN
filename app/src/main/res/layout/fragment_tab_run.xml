@@ -16,8 +16,9 @@
         android:layout_marginBottom="28dp"
         android:background="@drawable/btn_run_selector"
         android:text="@string/btn_run_start_run"
+        android:textStyle="bold"
         android:textColor="@color/theme_while"
-        android:textSize="24sp" />
+        android:textSize="30sp" />
 
 
 </RelativeLayout>

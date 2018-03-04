@@ -154,7 +154,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         titleText.setText("动态");
         publishImg.setVisibility(View.VISIBLE);
         homeImg.setImageResource(R.drawable.tab_dynamic_press_img);
-        homeText.setTextColor(getResources().getColor(R.color.colorTheme));
+        homeText.setTextColor(getResources().getColor(R.color.colorPrimary));
         setDefaultFragment();
     }
 

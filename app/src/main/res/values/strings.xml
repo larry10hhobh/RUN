@@ -65,14 +65,14 @@
     <string name="btn_run_start_run">GO</string>
     <string name="text_run_air_quality">空气质量</string>
     <string name="text_run_PM_2_5">PM2.5</string>
-    <string name="text_run_data_distance">累计跑步距离</string>
-    <string name="text_run_data_distance_unit">Km</string>
-    <string name="text_run_data_time">累计跑步时间</string>
+    <string name="text_run_data_distance">累计里程</string>
+    <string name="text_run_data_distance_unit">km</string>
+    <string name="text_run_data_time">累计时间</string>
     <string name="text_run_data_time_unit">H</string>
-    <string name="text_run_data_count">跑步次数</string>
+    <string name="text_run_data_count">累计次数</string>
     <string name="text_run_data_count_unit">次</string>
     <string name="text_run_data_heart">实时心率</string>
-    <string name="text_run_data_heart_unit">次/分钟</string>
+    <string name="text_run_data_heart_unit">PM</string>
 
 
     <string name="title_home_framgent">首页</string>

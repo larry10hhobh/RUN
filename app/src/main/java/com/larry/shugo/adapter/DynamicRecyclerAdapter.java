@@ -42,7 +42,7 @@ public class DynamicRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     private static final int Item_Type_Footer = 0;
     private static final int Item_Type_Normal = 1;
 
-    private boolean isLoadMore = false;//是否显示footerview,默认不显示
+    private boolean isLoadMore = false; //是否显示footerview,默认不显示
 
     private Context context;
     private Fragment homeFragment;
@@ -54,17 +54,17 @@ public class DynamicRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     private List<Dynamic> data = null;
 
-    public int lastposition =-1;
+    public int lastposition = -1;
 
     private DisplayImageOptions options;
 
     private DisplayImageOptions circleOptions;
 
 
-    public DynamicRecyclerAdapter(Context context,Fragment homeFragment){
+    public DynamicRecyclerAdapter(Context context, Fragment homeFragment) {
         this.context = context;
         this.homeFragment = homeFragment;
-        user = BmobUser.getCurrentUser(context.getApplicationContext(),User.class);
+        user = BmobUser.getCurrentUser(context.getApplicationContext(), User.class);
         this.options = new DisplayImageOptions.Builder()
                 .showImageOnLoading(R.drawable.default_no_picture)
                 .showImageOnFail(R.drawable.default_no_picture)
@@ -108,6 +108,7 @@ public class DynamicRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     /**
      * 设置是否显示上拉加载更多，默认不显示
+     *
      * @param isLoadMore
      */
     public void setIsLoadMore(boolean isLoadMore) {
@@ -117,9 +118,9 @@ public class DynamicRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         notifyDataSetChanged();
     }
 
-    private void setAnimation(View view,int position) {
-        if(position>lastposition) {
-            Animation animation = AnimationUtils.loadAnimation(view.getContext(),R.anim.item_bottom_in);
+    private void setAnimation(View view, int position) {
+        if (position > lastposition) {
+            Animation animation = AnimationUtils.loadAnimation(view.getContext(), R.anim.item_bottom_in);
             view.startAnimation(animation);
             lastposition = position;
         }
@@ -132,10 +133,10 @@ public class DynamicRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
         switch (viewType) {
             case Item_Type_Footer:
-                View footView =LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_foot_view_layout,parent,false);
+                View footView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_foot_view_layout, parent, false);
                 return new RecyclerFootViewHolder(footView);
             case Item_Type_Normal:
-                View normalView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_dynamic_layout,parent,false);
+                View normalView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_dynamic_layout, parent, false);
                 return new DynamicViewHolder(normalView);
         }
         return null;
@@ -145,7 +146,7 @@ public class DynamicRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
-        if(holder instanceof DynamicViewHolder) {
+        if (holder instanceof DynamicViewHolder) {
             final DynamicViewHolder viewHolder = (DynamicViewHolder) holder;
             final Dynamic dynamic = data.get(position);
 
@@ -242,7 +243,7 @@ public class DynamicRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     @Override
     public int getItemViewType(int position) {
-        if (isLoadMore&&position+1 == getItemCount()){
+        if (isLoadMore && position + 1 == getItemCount()) {
             return Item_Type_Footer;
         } else {
             return Item_Type_Normal;
@@ -252,64 +253,67 @@ public class DynamicRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     @Override
     public int getItemCount() {
         if (isLoadMore) {
-            return data==null||data.size()==0?0:data.size()+1;
+            return data == null || data.size() == 0 ? 0 : data.size() + 1;
         }
-        return data==null||data.size()==0?0:data.size();
+        return data == null || data.size() == 0 ? 0 : data.size();
     }
 
     /**
      * 点赞处理
+     *
      * @param dynamic
      * @param holder
      */
-    private void doLike(final Dynamic dynamic, final DynamicViewHolder holder){
+    private void doLike(final Dynamic dynamic, final DynamicViewHolder holder) {
 
-        if(!likes.contains(dynamic)) {//没有点赞
-            Log.i("TAG","没有点赞");
+        if (!likes.contains(dynamic)) {//没有点赞
+            Log.i("TAG", "没有点赞");
             Like like = new Like();
             like.setFromUser(user);
             like.setToDynamic(dynamic);
             like.save(context, new SaveListener() {
                 @Override
                 public void onSuccess() {
-                    dynamic.setLikesCount(dynamic.getLikesCount()+1);
+                    dynamic.setLikesCount(dynamic.getLikesCount() + 1);
                     dynamic.update(context, new UpdateListener() {
                         @Override
                         public void onSuccess() {
                             likes.add(dynamic);
                             holder.isClickFinish = true;
                             notifyDataSetChanged();
-                            Toast.makeText(context,"点赞成功",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "点赞成功", Toast.LENGTH_SHORT).show();
                         }
+
                         @Override
                         public void onFailure(int i, String s) {
                             holder.isClickFinish = true;
-                            Toast.makeText(context,"点赞失败",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "点赞失败", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
+
                 @Override
                 public void onFailure(int i, String s) {
                     holder.isClickFinish = true;
-                    Toast.makeText(context,"点赞失败，请稍后重试",Toast.LENGTH_SHORT);
+                    Toast.makeText(context, "点赞失败，请稍后重试", Toast.LENGTH_SHORT);
                 }
             });
         } else {
-            Log.i("TAG","点赞");
+            Log.i("TAG", "点赞");
 
             BmobQuery<Like> query = new BmobQuery<>();
-            query.addWhereEqualTo("fromUser",user);
-            query.addWhereEqualTo("toDynamic",dynamic);
+            query.addWhereEqualTo("fromUser", user);
+            query.addWhereEqualTo("toDynamic", dynamic);
             query.findObjects(context, new FindListener<Like>() {
                 @Override
                 public void onSuccess(List<Like> list) {
-                    if(list.size()==1) {
+                    if (list.size() == 1) {
                         Like like = list.get(0);
                         like.delete(context, new DeleteListener() {
                             @Override
                             public void onSuccess() {
 
-                                dynamic.setLikesCount(dynamic.getLikesCount()-1);
+                                dynamic.setLikesCount(dynamic.getLikesCount() - 1);
                                 dynamic.update(context, new UpdateListener() {
                                     @Override
                                     public void onSuccess() {
@@ -317,29 +321,32 @@ public class DynamicRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                                         holder.isClickFinish = true;
                                         notifyDataSetChanged();
                                     }
+
                                     @Override
                                     public void onFailure(int i, String s) {
                                         holder.isClickFinish = true;
-                                        Toast.makeText(context,"取消点赞失败",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(context, "取消点赞失败", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                             }
+
                             @Override
                             public void onFailure(int i, String s) {
                                 holder.isClickFinish = true;
-                                Toast.makeText(context,"取消点赞失败",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "取消点赞失败", Toast.LENGTH_SHORT).show();
                             }
                         });
 
                     } else {
                         holder.isClickFinish = true;
-                        Toast.makeText(context,"取消点赞失败",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "取消点赞失败", Toast.LENGTH_SHORT).show();
                     }
                 }
+
                 @Override
                 public void onError(int i, String s) {
                     holder.isClickFinish = true;
-                    Toast.makeText(context,"取消点赞失败",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "取消点赞失败", Toast.LENGTH_SHORT).show();
                 }
             });
         }

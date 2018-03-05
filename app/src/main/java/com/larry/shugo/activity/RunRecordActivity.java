@@ -27,7 +27,7 @@ import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
 
-public class RunRecordActivity extends BaseActivity{
+public class RunRecordActivity extends BaseActivity {
 
 
     private static final int Request_Code = 0x11;
@@ -51,7 +51,7 @@ public class RunRecordActivity extends BaseActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_run_record);
         ActivityManager.getInstance().pushOneActivity(this);
-        user = BmobUser.getCurrentUser(context,User.class);
+        user = BmobUser.getCurrentUser(context, User.class);
 
         initComponent();
         getdata();
@@ -89,7 +89,7 @@ public class RunRecordActivity extends BaseActivity{
     /**
      * 获取数据
      */
-    private void getdata(){
+    private void getdata() {
 
         //获取本地数据
         data = DBManager.getInstance(context).getRunRecords();
@@ -99,10 +99,10 @@ public class RunRecordActivity extends BaseActivity{
 
     }
 
-    private boolean hasSync(){
-        if(data!= null) {
-            for (RunRecord runRecord:data){
-                if(!runRecord.isSync()) {
+    private boolean hasSync() {
+        if (data != null) {
+            for (RunRecord runRecord : data) {
+                if (!runRecord.isSync()) {
                     return true;
                 }
             }
@@ -110,8 +110,8 @@ public class RunRecordActivity extends BaseActivity{
         return false;
     }
 
-    private void showSyncLayout(){
-        if(hasSync()) {
+    private void showSyncLayout() {
+        if (hasSync()) {
             syncLayout.setVisibility(View.VISIBLE);
         } else {
             syncLayout.setVisibility(View.GONE);
@@ -131,14 +131,14 @@ public class RunRecordActivity extends BaseActivity{
     /**
      * 设置监听
      */
-    private void setListener(){
+    private void setListener() {
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Intent intent = new Intent(RunRecordActivity.this,RunRecordDetailsActivity.class);
-                intent.putExtra("position",position);
+                Intent intent = new Intent(RunRecordActivity.this, RunRecordDetailsActivity.class);
+                intent.putExtra("position", position);
                 startActivityForResult(intent, Request_Code);
             }
         });
@@ -151,9 +151,9 @@ public class RunRecordActivity extends BaseActivity{
                 if (GeneralUtil.isNetworkAvailable(context)) {
                     //同步数据
                     syncData();
-                }else {
+                } else {
                     swipeRefreshLayout.setRefreshing(false);
-                    Toast.makeText(context,"网络状态异常，请稍后重试",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "网络状态异常，请稍后重试", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -165,21 +165,21 @@ public class RunRecordActivity extends BaseActivity{
     /**
      * 同步数据
      */
-    private void syncData(){
+    private void syncData() {
 
         //同步网络数据到本地
 
-        if(data.size()<=0&&serverData.size()>0) {//本地数据为空
+        if (data.size() <= 0 && serverData.size() > 0) {//本地数据为空
 
             data = serverData;
             //保存到数据库中
-            for (RunRecord runRecord :serverData) {
+            for (RunRecord runRecord : serverData) {
                 DBManager.getInstance(context).insertRunRecord(runRecord);
             }
 
-        } else if(data.size()>0&&serverData.size()<=0) {//网络无数据
+        } else if (data.size() > 0 && serverData.size() <= 0) {//网络无数据
 
-            for(final RunRecord record:data){
+            for (final RunRecord record : data) {
 
                 record.setIsSync(true);
                 record.save(context, new SaveListener() {
@@ -188,8 +188,9 @@ public class RunRecordActivity extends BaseActivity{
 
                         //修改数据库数据信息
                         DBManager.getInstance(context).updateOneRunRecord(record.getRecordid()
-                                    ,record.getObjectId(),true);
+                                , record.getObjectId(), true);
                     }
+
                     @Override
                     public void onFailure(int i, String s) {
 
@@ -199,11 +200,11 @@ public class RunRecordActivity extends BaseActivity{
 
             serverData = data;
 
-        } else if (data.size()>0&&serverData.size()>0) {//都有数据
+        } else if (data.size() > 0 && serverData.size() > 0) {//都有数据
 
-            for(final RunRecord record:data){
+            for (final RunRecord record : data) {
 
-                if(!serverData.contains(record)) { //网络数据中不包含这条记录
+                if (!serverData.contains(record)) { //网络数据中不包含这条记录
 
                     record.setIsSync(true);
                     record.save(context, new SaveListener() {
@@ -212,8 +213,9 @@ public class RunRecordActivity extends BaseActivity{
 
                             //修改数据库数据信息
                             DBManager.getInstance(context).updateOneRunRecord(record.getRecordid()
-                                    ,record.getObjectId(),true);
+                                    , record.getObjectId(), true);
                         }
+
                         @Override
                         public void onFailure(int i, String s) {
 
@@ -221,7 +223,7 @@ public class RunRecordActivity extends BaseActivity{
                     });
                 }
             }
-            for(RunRecord runRecord:serverData) {
+            for (RunRecord runRecord : serverData) {
 
                 if (!data.contains(runRecord)) {//本地数据没有
                     data.add(runRecord);
@@ -235,12 +237,13 @@ public class RunRecordActivity extends BaseActivity{
         adapter.notifyDataSetChanged();
 
     }
+
     /**
      * 从服务器端获取数据
      */
-    private void getDataFromServer(){
+    private void getDataFromServer() {
         BmobQuery<RunRecord> query = new BmobQuery<>();
-        query.addWhereEqualTo("userId",user.getObjectId());
+        query.addWhereEqualTo("userId", user.getObjectId());
         query.findObjects(context, new FindListener<RunRecord>() {
             @Override
             public void onSuccess(List<RunRecord> list) {
@@ -252,6 +255,7 @@ public class RunRecordActivity extends BaseActivity{
                     }
                 });
             }
+
             @Override
             public void onError(int i, String s) {
 
@@ -264,7 +268,7 @@ public class RunRecordActivity extends BaseActivity{
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 
-        switch ( requestCode) {
+        switch (requestCode) {
             case Request_Code:
                 getdata();
                 adapter.notifyDataSetChanged();

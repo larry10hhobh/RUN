@@ -57,7 +57,7 @@
             android:value="KtuxkGypyuwDYl4QE5Lj72AmemQ4skto" />
         <meta-data
             android:name="Bmob_APP_KEY"
-            android:value="8480c853527e900a942db8a2c5e6aa9f" />
+            android:value="03875f045493c5bfe104bed63325e6e7" />
 
         <activity android:name="com.larry.shugo.activity.LoginActivity" />
         <activity android:name="com.larry.shugo.activity.RegisterActivity" />

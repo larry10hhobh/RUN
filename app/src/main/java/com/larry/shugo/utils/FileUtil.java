@@ -17,7 +17,7 @@ public class FileUtil {
 
 
     /**
-     * 一级目录 rungang
+     * 一级目录 shugo
      */
     public static String  FIRST_DIR_PATH = Environment.getExternalStorageDirectory().getPath()
             +File.separator+"rungang";

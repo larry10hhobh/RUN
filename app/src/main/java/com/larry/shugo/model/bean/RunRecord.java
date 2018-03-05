@@ -11,24 +11,16 @@ import cn.bmob.v3.BmobObject;
  */
 public class RunRecord extends BmobObject {
 
-
-    private String recordid;    //记录id
-    private String userId;      // 用户id
+    private String recordId; //记录id
+    private String userId; // 用户id
     private User fromUser; //用户
-
-    private int time;          // 用时
-
-    private double distance;      // 距离
-
-    private String mapShotPath;   // 地图截屏路径
-
-    private List<LatLng> points;  //坐标点的集合
-
-    private List<Float> speeds;   //速度集合
-
-    private String createTime;    //创建时间
-
-    private boolean isSync; //同步标示，true 已同步，false 未同步
+    private int time; // 用时
+    private double distance; // 距离
+    private String mapShotPath; // 地图截屏路径
+    private List<LatLng> points; //坐标点的集合
+    private List<Float> speeds; //速度集合
+    private String createTime; //创建时间
+    private boolean isSync; //是否已同步
 
     public String getUserId() {
         return userId;
@@ -57,7 +49,7 @@ public class RunRecord extends BmobObject {
     public void setUserId(String userId) {
         this.userId = userId;
     }
-    
+
     public void setTime(int time) {
         this.time = time;
     }
@@ -95,20 +87,19 @@ public class RunRecord extends BmobObject {
     }
 
     public void setRecordid(String recordid) {
-        this.recordid = recordid;
+        this.recordId = recordid;
     }
 
     public String getRecordid() {
-
-        return recordid;
+        return recordId;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o instanceof RunRecord) {
-            RunRecord record = (RunRecord)o;
+            RunRecord record = (RunRecord) o;
 
-            return this.recordid.equals(record.getRecordid());
+            return this.recordId.equals(record.getRecordid());
 
         }
         return super.equals(o);

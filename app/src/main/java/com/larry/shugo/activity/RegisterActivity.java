@@ -357,10 +357,10 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         BmobSMS.requestSMSCode(context, mobileNumber, "注册验证码", new RequestSMSCodeListener() {
             @Override
             public void done(Integer integer, BmobException e) {
-                if (e==null) {//验证码发送成功
+                if (e==null) { //验证码发送成功
                     Message msg=new Message();
                     msg.what = GET_CODE_SUCCESS;
-                    handler.handleMessage(msg);
+                    handler.handleMessage(msg); //进行后续操作
                 } else {
 
                     timer.cancel();

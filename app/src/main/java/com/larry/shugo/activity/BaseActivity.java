@@ -13,8 +13,9 @@ import cn.sharesdk.framework.ShareSDK;
 
 /**
  * 基类Activity
+ * 提炼应用公有逻辑
  */
-public class BaseActivity extends AppCompatActivity{
+public class BaseActivity extends AppCompatActivity {
 
     public Context context;
 
@@ -22,22 +23,20 @@ public class BaseActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        context=getApplicationContext();
-        SDKInitializer.initialize(context);
-        Bmob.initialize(context,ConfigUtil.BMOB_APP_ID);
 
-        //初始化分享SDK
-        ShareSDK.initSDK(context);
+        super.onCreate(savedInstanceState);
+        context = getApplicationContext();
+        SDKInitializer.initialize(context); //初始化地图SDK
+        Bmob.initialize(context, ConfigUtil.BMOB_APP_ID); //初始化BmobSDK
+        ShareSDK.initSDK(context); //初始化分享SDK
 
     }
 
     /**
      * 开启进度弹窗
-     * @param content
      */
-    public void showProgressDialog(Context c,String content){
-        if (progressDialog==null) {
+    public void showProgressDialog(Context c, String content) {
+        if (progressDialog == null) {
             progressDialog = new ProgressDialog(c);
             progressDialog.setMessage(content);
 
@@ -50,7 +49,7 @@ public class BaseActivity extends AppCompatActivity{
      * 关闭进度弹窗
      */
     public void closeProgressDialog() {
-        if (progressDialog!=null) {
+        if (progressDialog != null) {
             progressDialog.cancel();
             progressDialog = null;
         }
@@ -59,6 +58,6 @@ public class BaseActivity extends AppCompatActivity{
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ShareSDK.stopSDK(context);
+        ShareSDK.stopSDK(context); //关闭
     }
 }

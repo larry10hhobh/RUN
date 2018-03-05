@@ -81,9 +81,9 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
 
     private User user;
 
-    private RunRecord runRecord = null ; // 跑步记录
+    private RunRecord runRecord = null; // 跑步记录
 
-    private String picPath = null ; // 截屏路径
+    private String picPath = null; // 截屏路径
 
     private boolean isStart = false; // 标示 是否开始运动，默认false，未开始
 
@@ -96,6 +96,7 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
      * 定位客户端
      */
     public LocationClient mLocationClient = null;
+
     /**
      * 定位监听器
      */
@@ -167,6 +168,7 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
             super.handleMessage(msg);
         }
     };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -175,7 +177,7 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
         setContentView(R.layout.activity_run);
         initToolBar();
 
-        user = BmobUser.getCurrentUser(context,User.class);
+        user = BmobUser.getCurrentUser(context, User.class);
 
         initComponent();
         baiduMap = mapView.getMap();
@@ -186,7 +188,7 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
-    private void initToolBar(){
+    private void initToolBar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_run);
         toolbar.setTitle("跑步");
         toolbar.setNavigationIcon(R.drawable.back);
@@ -202,7 +204,7 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_map_set:
-                        Intent mapset = new Intent(RunActivity.this,OLMapActivity.class);
+                        Intent mapset = new Intent(RunActivity.this, OLMapActivity.class);
                         startActivity(mapset);
                         break;
                 }
@@ -240,9 +242,10 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
 
     /**
      * 绘制轨迹
+     *
      * @param latLng
      */
-    private void drawTrace(LatLng latLng){
+    private void drawTrace(LatLng latLng) {
 
         Log.i("TAG", "绘制实时点");
 
@@ -255,20 +258,20 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
         //实时点
         realtimeBitmap = BitmapDescriptorFactory.fromResource(R.drawable.point);
 
-        if(isStart) {
+        if (isStart) {
             realtimeOptions = new MarkerOptions().position(latLng).icon(realtimeBitmap)
                     .zIndex(9).draggable(true);
         }
         // 开始点
         BitmapDescriptor startBitmap = BitmapDescriptorFactory.fromResource(R.drawable.startpoint);
 
-        if (pointList.size()>1) {
+        if (pointList.size() > 1) {
             startOptions = new MarkerOptions().position(pointList.get(0)).
                     icon(startBitmap).zIndex(9).draggable(true);
         }
 
         // 路线
-        if (pointList.size()>=2) {
+        if (pointList.size() >= 2) {
 
             polyLine = new PolylineOptions().width(10).color(Color.GREEN).points(pointList);
         }
@@ -285,7 +288,7 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
             baiduMap.setMapStatus(update);
         }
         //开始点覆盖物
-        if (null != startOptions ) {
+        if (null != startOptions) {
             baiduMap.addOverlay(startOptions);
         }
         // 路线覆盖物
@@ -297,7 +300,7 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
             baiduMap.addOverlay(realtimeOptions);
         }
         //结束点覆盖物
-        if (null != endOptions ) {
+        if (null != endOptions) {
             baiduMap.addOverlay(endOptions);
         }
 
@@ -307,13 +310,13 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
     /**
      * 初始化定位，设置定位参数
      */
-    private void initLocation(){
+    private void initLocation() {
         //用来设置定位sdk的定位方式
         LocationClientOption option = new LocationClientOption();
 
         option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);//可选，默认高精度，设置定位模式，高精度，低功耗，仅设备
         option.setCoorType("bd09ll");//可选，默认gcj02，设置返回的定位结果坐标系
-        int span=5000;
+        int span = 5000;
         option.setScanSpan(span);//可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
         option.setIsNeedAddress(true);//可选，设置是否需要地址信息，默认不需要
         option.setOpenGps(true);//可选，默认false,设置是否使用gps
@@ -331,73 +334,72 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
     /**
      * 定位监听器
      */
-    private class MyLocationListener implements  BDLocationListener{
+    private class MyLocationListener implements BDLocationListener {
 
         @Override
         public void onReceiveLocation(BDLocation bdLocation) {
 
-                if (bdLocation.getLocType() == BDLocation.TypeGpsLocation ||
-                        bdLocation.getLocType() == BDLocation.TypeNetWorkLocation ){ //gps,网络定位成功定位
+            if (bdLocation.getLocType() == BDLocation.TypeGpsLocation ||
+                    bdLocation.getLocType() == BDLocation.TypeNetWorkLocation) { //gps,网络定位成功定位
 
-                    double latitude = bdLocation.getLatitude(); //纬度
-                    double longitude = bdLocation.getLongitude(); // 经度
-                    double radius = bdLocation.getRadius(); //精度
-                    float speed = 0f;
-                    if(bdLocation.hasSpeed()){
-                        speed = bdLocation.getSpeed();
-                        speedList.add(speed);
+                double latitude = bdLocation.getLatitude(); //纬度
+                double longitude = bdLocation.getLongitude(); // 经度
+                double radius = bdLocation.getRadius(); //精度
+                float speed = 0f;
+                if (bdLocation.hasSpeed()) {
+                    speed = bdLocation.getSpeed();
+                    speedList.add(speed);
 
-                        Log.i("TAG","速度"+speed);
-                    }
-                    LatLng latLng = new LatLng(latitude,longitude); //坐标点
+                    Log.i("TAG", "速度" + speed);
+                }
+                LatLng latLng = new LatLng(latitude, longitude); //坐标点
 
-                    if (Math.abs(latitude - 0.0) < 0.000001 && Math.abs(longitude - 0.0) < 0.000001) {
+                if (Math.abs(latitude - 0.0) < 0.000001 && Math.abs(longitude - 0.0) < 0.000001) {
+
+                } else {
+                    if (pointList.size() < 1) { //初次定位
+
+                        pointList.add(latLng);
 
                     } else {
-                        if (pointList.size()<1) { //初次定位
-
+                        LatLng lastPoint = pointList.get(pointList.size() - 1);//上一次定位坐标点
+                        double rang = DistanceUtil.getDistance(lastPoint, latLng); // 两次定位的距离
+                        if (rang > 10) {
+                            distance = distance + rang;
                             pointList.add(latLng);
-
-                        }else {
-                            LatLng lastPoint = pointList.get(pointList.size()-1);//上一次定位坐标点
-                            double rang = DistanceUtil.getDistance(lastPoint,latLng); // 两次定位的距离
-                            if(rang>10 ) {
-                                distance = distance + rang;
-                                pointList.add(latLng);
-                            }
                         }
-                        distanceText.setText(GeneralUtil.doubleToString(distance));
-
                     }
-                    drawTrace(latLng);
+                    distanceText.setText(GeneralUtil.doubleToString(distance));
 
-                }  else if(bdLocation.getLocType() == BDLocation.TypeServerError ) { //服务器错误
-                    Toast.makeText(context,"服务器错误，请稍后重试",Toast.LENGTH_SHORT).show();
-                } else if (bdLocation.getLocType() == BDLocation.TypeNetWorkException ) {
-                    Toast.makeText(context,"网络错误，请连接网络",Toast.LENGTH_SHORT).show();
-                } else if (bdLocation.getLocType() == BDLocation.TypeCriteriaException ) {
-                    Toast.makeText(context,"定位错误，请设置手机模式",Toast.LENGTH_SHORT).show();
                 }
+                drawTrace(latLng);
+
+            } else if (bdLocation.getLocType() == BDLocation.TypeServerError) { //服务器错误
+                Toast.makeText(context, "服务器错误，请稍后重试", Toast.LENGTH_SHORT).show();
+            } else if (bdLocation.getLocType() == BDLocation.TypeNetWorkException) {
+                Toast.makeText(context, "网络错误，请连接网络", Toast.LENGTH_SHORT).show();
+            } else if (bdLocation.getLocType() == BDLocation.TypeCriteriaException) {
+                Toast.makeText(context, "定位错误，请设置手机模式", Toast.LENGTH_SHORT).show();
+            }
         }
 
     }
 
     /**
-     *绘制最终完成地图
-     *
+     * 绘制最终完成地图
      */
-    private void drawFinishMap(){
+    private void drawFinishMap() {
         baiduMap.clear();
 
-        LatLng  startLatLng = pointList.get(0);
-        LatLng  endLatLng = pointList.get(pointList.size() - 1);
+        LatLng startLatLng = pointList.get(0);
+        LatLng endLatLng = pointList.get(pointList.size() - 1);
 
         //地理范围
         LatLngBounds bounds = new LatLngBounds.Builder().include(startLatLng).include(endLatLng).build();
 
         update = MapStatusUpdateFactory.newLatLngBounds(bounds);
 
-        if (pointList.size()>=2) {
+        if (pointList.size() >= 2) {
 
             // 开始点
             BitmapDescriptor startBitmap = BitmapDescriptorFactory.fromResource(R.drawable.startpoint);
@@ -410,11 +412,11 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
                     .icon(endBitmap).zIndex(9).draggable(true);
 
             polyLine = new PolylineOptions().width(10).color(Color.GREEN).points(pointList);
-        }else {
+        } else {
             //实时点
             realtimeBitmap = BitmapDescriptorFactory.fromResource(R.drawable.point);
             realtimeOptions = new MarkerOptions().position(startLatLng).icon(realtimeBitmap)
-                        .zIndex(9).draggable(true);
+                    .zIndex(9).draggable(true);
 
         }
 
@@ -446,11 +448,11 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
     /**
      * 开始计时
      */
-    private void startTimer(){
-        if(timer == null) {
+    private void startTimer() {
+        if (timer == null) {
             timer = new Timer();
         }
-        if(timerTask == null) {
+        if (timerTask == null) {
             timerTask = new TimerTask() {
                 @Override
                 public void run() {
@@ -464,8 +466,8 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
             };
         }
 
-        if(timer != null && timerTask != null) {
-            timer.schedule(timerTask,1000,1000);
+        if (timer != null && timerTask != null) {
+            timer.schedule(timerTask, 1000, 1000);
         }
 
     }
@@ -473,7 +475,7 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
     /**
      * 结束计时
      */
-    private void stopTimer(){
+    private void stopTimer() {
 
         if (timer != null) {
             timer.cancel();
@@ -486,6 +488,7 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
 
 
     }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -504,7 +507,7 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
 
                 } else { //未开始，开始按钮
 
-                    isStart = true ;
+                    isStart = true;
                     startTimer();
                     startOrPauseImg.setImageResource(R.drawable.run_stop);
                     stateText.setText("暂停");
@@ -525,10 +528,10 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
                 showDialog();
                 break;
 
-            case R.id.dialog_continue_run :
+            case R.id.dialog_continue_run:
                 dialog.dismiss();
                 break;
-            case R.id.dialog_end_run :
+            case R.id.dialog_end_run:
                 //绘制完成轨迹图
                 drawFinishMap();
                 //截屏
@@ -544,15 +547,15 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
      * 地图截屏
      */
 
-    private void mapScreenShot(){
+    private void mapScreenShot() {
 
         baiduMap.snapshot(new BaiduMap.SnapshotReadyCallback() {
             @Override
             public void onSnapshotReady(Bitmap bitmap) {
 
                 //将bitmap存储到文件中
-                Log.i("TAG","截图成功");
-                picPath = FileUtil.saveBitmapToFile(bitmap,"mapshot");
+                Log.i("TAG", "截图成功");
+                picPath = FileUtil.saveBitmapToFile(bitmap, "mapshot");
                 //保存记录
                 saveRunRecord();
             }
@@ -562,25 +565,26 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
     /**
      * 保存跑步记录
      */
-    private void saveRunRecord(){
+    private void saveRunRecord() {
 
         runRecord = new RunRecord();
 
-        String id= new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        String id = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
         Log.i("TAG", "id" + id);
         runRecord.setRecordid(id);
         runRecord.setPoints(pointList);
         runRecord.setDistance(distance);
         runRecord.setTime(time);
         runRecord.setUserId(user.getObjectId());
-        runRecord.setCreateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        runRecord.setCreateTime(new
+                SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         runRecord.setMapShotPath(picPath);
         runRecord.setSpeeds(speedList);
 
-        if (GeneralUtil.isNetworkAvailable(context)) { //网络连接
+        if (GeneralUtil.isNetworkAvailable(context)) { //判断网络连接
 
             runRecord.setIsSync(true);
-            //存储到服务器端
+            // 存储到服务器端
             runRecord.save(context, new SaveListener() {
                 @Override
                 public void onSuccess() {
@@ -604,7 +608,7 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
             DBManager.getInstance(context).insertRunRecord(runRecord);
         }
 
-        Log.i("TAG","objecid111"+runRecord.getObjectId());
+        Log.i("TAG", "objecid123" + runRecord.getObjectId());
         RunActivity.this.finish();
 
     }
@@ -612,7 +616,7 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
     /**
      * 展示dialog
      */
-    private void showDialog(){
+    private void showDialog() {
 
         View view = getLayoutInflater().inflate(R.layout.dialog_run_finish_layout, null);
 
@@ -623,7 +627,7 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
 
         dialogMessage = (TextView) view.findViewById(R.id.dialog_message_text);
         dialogContinue = (TextView) view.findViewById(R.id.dialog_continue_run);
-        dialogEnd = (TextView) view.findViewById( R.id.dialog_end_run);
+        dialogEnd = (TextView) view.findViewById(R.id.dialog_end_run);
 
         dialogContinue.setOnClickListener(this);
         dialogEnd.setOnClickListener(this);
@@ -632,7 +636,7 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.menu_run,menu);
+        getMenuInflater().inflate(R.menu.menu_run, menu);
         return true;
     }
 }

@@ -164,7 +164,6 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
                     break;
 
             }
-
             super.handleMessage(msg);
         }
     };

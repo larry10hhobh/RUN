@@ -203,9 +203,11 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_map_set:
-                        Intent mapset = new Intent(RunActivity.this, OLMapActivity.class);
+
+/*                        Intent mapset = new Intent(RunActivity.this, OLMapActivity.class);
                         startActivity(mapset);
-                        break;
+                        break;*/
+
                 }
                 return true;
             }

@@ -46,17 +46,14 @@ import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 
 
-public class RunRecordDetailsActivity extends BaseActivity implements View.OnClickListener, Toolbar.OnMenuItemClickListener {
-
+public class RunRecordDetailsActivity extends BaseActivity implements /*View.OnClickListener, */Toolbar.OnMenuItemClickListener {
 
     private MapView mapView;
-
     private TextView createtiemText;
     private TextView distanceText;
     private TextView timeText;
     private TextView heartText;
-    private TextView heartUnitText;
-
+//    private TextView heartUnitText;
 
     private BaiduMap baiduMap;
 
@@ -150,10 +147,10 @@ public class RunRecordDetailsActivity extends BaseActivity implements View.OnCli
         createtiemText = (TextView) findViewById(R.id.record_details_create_time_text);
         distanceText = (TextView) findViewById(R.id.record_details_distance_text);
         timeText = (TextView) findViewById(R.id.record_details_time_text);
-        heartText = (TextView)findViewById(R.id.record_details_heart_text);
-        heartUnitText = (TextView)findViewById(R.id.record_details_distance_unit);
-        heartText.setOnClickListener(this);
-        heartUnitText.setOnClickListener(this);
+//        heartText = (TextView)findViewById(R.id.record_details_heart_text);
+//        heartUnitText = (TextView)findViewById(R.id.record_details_distance_unit);
+//        heartText.setOnClickListener(this);
+//        heartUnitText.setOnClickListener(this);
 
     }
 
@@ -230,7 +227,7 @@ public class RunRecordDetailsActivity extends BaseActivity implements View.OnCli
         timeText.setText(GeneralUtil.secondsToString(runRecord.getTime()));
     }
 
-    @Override
+/*    @Override
     public void onClick(View v) {
         Intent chartIntent = new Intent(this, ChartActivity.class);
         switch (v.getId()) {
@@ -241,7 +238,7 @@ public class RunRecordDetailsActivity extends BaseActivity implements View.OnCli
                 startActivity(chartIntent);
                 break;
         }
-    }
+    }*/
 
     /**
      * 删除记录

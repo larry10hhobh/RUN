@@ -269,12 +269,10 @@ public class GeneralUtil {
         // 四舍五入，保留2为小数
         double d = Math.round(km * 100) / 100.0;
 
-
         //转化为字符串
         if (d > 0) {
             distanceStr = String.valueOf(d);
         }
-
 
         return distanceStr;
     }

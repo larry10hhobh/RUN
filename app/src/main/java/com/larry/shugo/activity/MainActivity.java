@@ -133,7 +133,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 //        client.start();
     }
 
-
     /**
      * 检查版本更新
      */
@@ -147,6 +146,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         });
         BmobUpdateAgent.setUpdateCheckConfig(false);
     }
+
     /**
      * 初始状态
      */

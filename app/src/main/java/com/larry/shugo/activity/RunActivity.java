@@ -162,7 +162,6 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
                     runRecord.setIsSync(false);
                     DBManager.getInstance(context).insertRunRecord(runRecord);
                     break;
-
             }
             super.handleMessage(msg);
         }
@@ -220,7 +219,6 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
      */
     private void initComponent() {
 
-
         mapView = (MapView) findViewById(R.id.run_mapview);
 
         timeText = (TextView) findViewById(R.id.run_time_text);
@@ -263,6 +261,7 @@ public class RunActivity extends BaseActivity implements View.OnClickListener {
             realtimeOptions = new MarkerOptions().position(latLng).icon(realtimeBitmap)
                     .zIndex(9).draggable(true);
         }
+
         // 开始点
         BitmapDescriptor startBitmap = BitmapDescriptorFactory.fromResource(R.drawable.startpoint);
 
